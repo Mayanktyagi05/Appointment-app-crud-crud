@@ -21,6 +21,20 @@ function saveToLocalStorage(event){
     //localStorage.setItem(obj.email, JSON.stringify(obj))
     //showUserOnScreen(obj)
   }
+  window.addEventListener("DOMContentLoaded", ()=>{
+    axios.get("https://crudcrud.com/api/936a96b95a384840ae3de78ec36e6738/appointmentdata")
+    .then((response) => {
+      for(var i=0; i<response.data.length; i++)
+      {
+        showUserOnScreen(response.data[i])
+      }
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+    console.log(data)
+  })
   
   function showUserOnScreen(obj){
     const parentElem = document.getElementById('listofitems');
